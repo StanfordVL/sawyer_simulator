@@ -26,6 +26,13 @@
 #include <kdl_parser/kdl_parser.hpp>
 #include <tf_conversions/tf_kdl.h>
 
+namespace std{
+template<typename T, typename... Args>
+std::unique_ptr<T> make_unique(Args&&... args) {
+    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+}
+}
+
 namespace sawyer_gazebo
 {
 

@@ -23,6 +23,7 @@
 #include <hardware_interface/internal/hardware_resource_manager.h>
 #include <hardware_interface/joint_command_interface.h>
 #include <sawyer_hardware_interface/sum_command_interface.h>
+#include <boost/lexical_cast.hpp> 
 
 namespace sawyer_hardware_interface
 {
@@ -97,7 +98,7 @@ public:
 
       throw hardware_interface::HardwareInterfaceException("HEY LISTEN! Could not find resource '" + name + "' in '" +
         hardware_interface::internal::demangledTypeName(*this) + "'." +
-        "Out of (" + std::to_string(containers_.size()) + ") Containers.");
+        "Out of (" + boost::lexical_cast<std::string>(containers_.size()) + ") Containers.");
     }
 
     return it->second;

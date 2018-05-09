@@ -20,6 +20,7 @@
 #include <cassert>
 #include <string>
 #include <memory>
+#include <boost/shared_ptr.hpp>
 #include <hardware_interface/joint_state_interface.h>
 #include <hardware_interface/joint_command_interface.h>
 
@@ -159,7 +160,7 @@ private:
 };
 
 
-typedef std::shared_ptr<SumJointHandle> SumJointHandlePtr;
+typedef boost::shared_ptr<SumJointHandle> SumJointHandlePtr;
 
 
 }  // namespace

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(sawyer_sim_controllers)
 
 ## Add support for C++14, supported in ROS Kinetic and newer
-add_definitions(-std=c++14)
+add_definitions(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
   effort_controllers

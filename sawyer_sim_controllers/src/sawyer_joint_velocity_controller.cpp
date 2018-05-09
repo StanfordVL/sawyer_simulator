@@ -88,18 +88,18 @@ bool JointVelocityController::init(sawyer_hardware_interface::SharedJointInterfa
 
 void JointVelocityController::setGains(const double &p, const double &i, const double &d, const double &i_max, const double &i_min, const bool &antiwindup)
 {
-  pid_controller_.setGains(p,i,d,i_max,i_min,antiwindup);
+  pid_controller_.setGains(p,i,d,i_max,i_min);//,antiwindup);
 }
 
 void JointVelocityController::getGains(double &p, double &i, double &d, double &i_max, double &i_min, bool &antiwindup)
 {
-  pid_controller_.getGains(p,i,d,i_max,i_min,antiwindup);
+  pid_controller_.getGains(p,i,d,i_max,i_min);//,antiwindup);
 }
 
 void JointVelocityController::getGains(double &p, double &i, double &d, double &i_max, double &i_min)
 {
   bool dummy;
-  pid_controller_.getGains(p,i,d,i_max,i_min,dummy);
+  pid_controller_.getGains(p,i,d,i_max,i_min);//,dummy);
 }
 
 void JointVelocityController::printDebug()
@@ -158,9 +158,9 @@ void JointVelocityController::update(const ros::Time& time, const ros::Duration&
         controller_state_publisher_->msg_.i,
         controller_state_publisher_->msg_.d,
         controller_state_publisher_->msg_.i_clamp,
-        dummy,
-        antiwindup);
-      controller_state_publisher_->msg_.antiwindup = static_cast<char>(antiwindup);
+        dummy);//,
+        //antiwindup);
+      //controller_state_publisher_->msg_.antiwindup = static_cast<char>(antiwindup);
       controller_state_publisher_->unlockAndPublish();
     }
   }

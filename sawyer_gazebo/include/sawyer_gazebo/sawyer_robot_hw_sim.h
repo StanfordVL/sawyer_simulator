@@ -21,6 +21,7 @@
 #include <gazebo_ros_control/default_robot_hw_sim.h>
 #include <sawyer_hardware_interface/sum_command_interface.h>
 #include <sawyer_hardware_interface/shared_joint_interface.h>
+#include <boost/shared_ptr.hpp>
 
 
 namespace sawyer_gazebo
@@ -56,7 +57,7 @@ protected:
   static const double BRAKE_VALUE;
 };
 
-typedef std::shared_ptr<SawyerRobotHWSim> SawyerRobotHWSimPtr;
+typedef boost::shared_ptr<SawyerRobotHWSim> SawyerRobotHWSimPtr;
 
 }  // namespace
 
